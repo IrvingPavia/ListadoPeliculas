@@ -1,0 +1,23 @@
+<igx-navbar title="Películas"></igx-navbar>
+
+<div class="layout-box body_Home" igxLayout igxLayoutDir="row" igxLayoutWrap="wrap" igxLayoutJustify="space-around">
+
+    <div clas="" igxLayout igxLayoutDir="column" igxFlexGrow="0" *ngFor="let movie of arrMovies">
+        <igx-card (click)="showMovie(movie)" class="igx-card layout-box_Movie puntero" IgxCardType="elevated">
+            <igx-card-header class="card-img-overlay layout-box_Card" igxFlex>
+                <img class="card-img layout-box_Card" [src]="movie.poster_path " alt="Card image cap ">
+            </igx-card-header>
+            <igx-card-content igxFlex>
+                <h5 class="Text_Ficha color_text_header">{{movie.original_title}}</h5>
+                <div igxLayout igxLayoutDir="row" igxLayoutJustify="space-between">
+                    <h6 class="card-text Text_Ficha color_text_header" style="text-align: start;" igxFlex>{{movie.release_date}}</h6>
+                    <h6 class="card-text Text_Ficha color_text_header" style="text-align: end;" igxFlex>{{movie.vote_average}}
+                        <igx-icon style="color: yellow;">star_outline</igx-icon>
+                    </h6>
+                </div>
+            </igx-card-content>
+        </igx-card>
+    </div>
+
+
+</div>

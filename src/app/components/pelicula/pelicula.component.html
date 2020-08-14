@@ -1,0 +1,32 @@
+<igx-navbar title="Películas" actionButtonIcon="arrow_back" (onAction)="navigateBack()"></igx-navbar>
+<div *ngIf="objMovie; then MovieCard else NotFound">
+</div>
+
+<ng-template #MovieCard>
+    <div class="body_Home" igxLayout igxLayoutDir="column" igxLayoutJustify="space-around">
+        <div class="layout-box_Card" igxFlex>
+            <igx-card class="igx-card " IgxCardType="elevated">
+                <img class="card-img" [src]="objMovie.backdrop_path" alt="Card image cap ">
+            </igx-card>
+        </div>
+        <div class="Text_Ficha color_text_white" igxFlex>
+            <h3>{{objMovie.title}}</h3>
+            <h5>Duración:</h5>
+            <h6>{{objMovie.runtime}} min</h6>
+            <h5>Fecha de estreno:</h5>
+            <h6>{{getMovieDate()}} </h6>
+            <h5>Clasificación:</h5>
+            <h6>{{objMovie.vote_average}}</h6>
+            <h5>Géneros:</h5>
+            <h6>{{name_genres}}</h6>
+            <h4>Descripión:</h4>
+            <h6>{{objMovie.overview}}</h6>
+        </div>
+    </div>
+
+</ng-template>
+<ng-template #NotFound>
+    <div class="body_Home color_text_white" igxFlex>
+        <h4>Pelicula no encontrada.</h4>
+    </div>
+</ng-template>
